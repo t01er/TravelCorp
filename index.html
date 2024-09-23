@@ -14,7 +14,7 @@
     }
 
     .headers {
-        background-image: linear-gradient(rgba(255, 255, 255, 0.637), rgb(248, 238, 238)), url(img/bannerone.png);
+        background-image: linear-gradient(#edf7ff33, #edf7ffe8), url(img/bannerone.png);
         height: 85vh;
         background-size: cover;
         width: 100%;
@@ -35,14 +35,14 @@
     }
 
     .active-btn {
-        background-color: rgb(153, 27, 27);
+        background-color: #0355f2;
         color: white;
         scale: 1.20;
         transition: ease-in-out .4s;
     }
 </style>
 
-<body class="bg-orange-50">
+<body class="bg-[#edf7ff]">
     <header id="home" class="headers ">
         <nav class="flex fixed w-full backdrop-blur-md bg-white/50  py-5 px-5 z-50">
             <div class="flex items-center justify-between max-w-7xl m-auto w-full">
@@ -61,12 +61,12 @@
                 <div id="menu"
                     class="md:block hidden absolute md:relative md:bg-transparent md:w-fit w-full md:backdrop-none backdrop-blur-md bg-white md:top-0 top-[70px] md:h-full h-screen left-0 rounded-lg  px-5   ">
                     <div
-                        class="flex flex-col items-center h-fit justify-center md:h-full h-[80vh] md:my-0 my-20 md:flex-row gap-10 md:font-normal font-black md:text-base text-5xl ">
-                        <a href="#home" class="block text-gray-800 py-2">Inicio</a>
-                        <a href="#aboutus" class="block text-gray-800 py-2">Nosotros</a>
-                        <a href="#services" class="block text-gray-800 py-2">Servicios</a>
-                        <a href="#welcome" class="block text-gray-800 py-2">Informacion</a>
-                        <a href="#contactus" class="block text-gray-800 py-2">Contactanos</a>
+                        class="flex flex-col items-center h-fit justify-center md:h-full h-[80vh] md:my-0 my-20 md:flex-row gap-10 md:font-normal font-black md:text-base text-4xl ">
+                        <a href="#home" class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Inicio</a>
+                        <a href="#aboutus" class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Nosotros</a>
+                        <a href="#services" class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Servicios</a>
+                        <a href="#welcome" class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Informacion</a>
+                        <a href="#contactus" class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Contactanos</a>
                     </div>
                 </div>
             </div>
@@ -74,8 +74,10 @@
         <section class="flex items-center py-10 h-screen max-w-7xl m-auto px-5 ">
             <div class="flex flex-col gap-2  ">
                 <h2 class="md:text-6xl text-6xl font-black mb-5 text-balance  ">¡Bienvenido a Travel Corp!</h2>
-                <p>Somos tu aliado confiable en envíos rápidos y seguros, conectando Huancayo con la selva central. ¡Confía en nosotros para tus encomiendas!</p>
-                <a class="py-2 px-4 shadow-xd border border-black/50 bg-red-200 w-fit rounded-md"href="https://wa.me/+51964770687" target="_blank">Contactar</a>
+                <p>Somos tu aliado confiable en envíos rápidos y seguros, conectando Huancayo con la selva central.
+                    ¡Confía en nosotros para tus encomiendas!</p>
+                <a class="py-2 px-4 shadow-xd border border-black/50 bg-[#218eff]  text-white w-fit rounded-md"
+                    href="https://wa.me/+51964770687" target="_blank">Contactar</a>
             </div>
             <div class="w-full flex items-center justify-center hidden md:flex">
                 <img class="w-96 h-96 object-cover rounded-full  " src="img/banner.jpg" alt="">
@@ -83,19 +85,19 @@
         </section>
     </header>
     <main>
-        <section class="bg-red-100 py-10">
+        <section class="bg-[#d6ecff] py-10">
             <div class="max-w-7xl m-auto">
                 <div class="flex items-center justify-between px-5 ">
                     <div class="flex items-center flex-col gap-2 ">
-                        <span id="experience" class="font-black text-4xl text-red-800">0</span>
+                        <span id="experience" class="font-black text-4xl text-[#0f275c]">0</span>
                         <p class="text-zinc-700 text-normal  md:text-xs ">Años de Experiencia</p>
                     </div>
                     <div class="flex items-center flex-col gap-2 ">
-                        <span id="movingHeight" class="font-black text-4xl text-red-800">0</span>
+                        <span id="movingHeight" class="font-black text-4xl text-[#0f275c]">0</span>
                         <p class="text-zinc-700 text-normal  md:text-xs ">Envios</p>
                     </div>
                     <div class="flex items-center flex-col gap-2 ">
-                        <span id="rating" class="font-black text-4xl text-red-800">0</span>
+                        <span id="rating" class="font-black text-4xl text-[#0f275c]">0</span>
                         <p class="text-zinc-700 text-normal  md:text-xs ">Calificación</p>
                     </div>
                 </div>
@@ -115,9 +117,9 @@
                         para tus necesidades de envío.</p>
                     <div>
                         <button id="btn-mision"
-                            class="w-fit py-2 px-4 shadow-xd border border-black/50 bg-red-200 rounded-md ">Misión</button>
+                            class="w-fit py-2 px-4 shadow-xd border border-black/50 bg-[#218eff]  text-white rounded-md ">Misión</button>
                         <button id="btn-vision"
-                            class="w-fit py-2 px-4 shadow-xd border border-black/50 bg-red-200 rounded-md ">Visión</button>
+                            class="w-fit py-2 px-4 shadow-xd border border-black/50 bg-[#218eff]  text-white rounded-md ">Visión</button>
 
                     </div>
                 </div>
@@ -130,7 +132,7 @@
                         paquetes y documentos, brindando una atención excepcional adaptándonos a las necesidades de
                         nuestros clientes, facilitando el comercio y la comunicación para impulsar el crecimiento
                         económico y social.</p>
-                    <button id="close-mision" class="mt-4 px-4 py-2 bg-red-200 rounded-md">Cerrar</button>
+                    <button id="close-mision" class="mt-4 px-4 py-2 bg-[#218eff]  text-white rounded-md">Cerrar</button>
                 </div>
             </div>
 
@@ -141,25 +143,27 @@
                     <p>Ser la agencia de encomiendas líder en Huancayo, reconocida por nuestra calidad, confianza e
                         innovación en servicios de envío. Aspiramos a ser el aliado estratégico en el que nuestros
                         clientes confíen para sus necesidades de envío, un vínculo esencial entre Huancayo y la Selva.
-                        </p>
-                    <button id="close-vision" class="mt-4 px-4 py-2 bg-red-200 rounded-md">Cerrar</button>
+                    </p>
+                    <button id="close-vision" class="mt-4 px-4 py-2 bg-[#218eff]  text-white rounded-md">Cerrar</button>
                 </div>
             </div>
         </section>
         <section id="services" class="max-w-7xl m-auto py-20">
             <div class="flex flex-col gap-5 pb-20 px-5">
                 <h2 class="text-5xl font-bold md:text-center text-left ">Nuestros Servicios</h2>
-                <p class="md:text-center text-left" >Ofrecemos soluciones de encomiendas rápidas y seguras entre Huancayo y la selva central. Garantizamos entregas puntuales, adaptadas a las necesidades de cada cliente, con un enfoque en eficiencia, confiabilidad y satisfacción.</p>
+                <p class="md:text-center text-left">Ofrecemos soluciones de encomiendas rápidas y seguras entre Huancayo
+                    y la selva central. Garantizamos entregas puntuales, adaptadas a las necesidades de cada cliente,
+                    con un enfoque en eficiencia, confiabilidad y satisfacción.</p>
             </div>
 
             <div class="max-w-7xl m-auto grid md:grid-cols-4 grid-cols-1 px-5 gap-4">
-                <div class="border-red-800 border-2 p-7 rounded-2xl">
+                <div class="border-[#218eff] border-2 p-7 rounded-2xl">
                     <div class="flex flex-col items-start justify-center gap-2 ">
                         <img class="w-20 h-20 object-contain" src="img/sobre.png" alt="">
                         <div class="flex flex-col gap-2">
                             <h2 class=" font-bold mb-4">HUANCAYO A TARMA</h2>
                             <p class="text-lg font-semibold">Pequeño, Documentos (Sobres):</p>
-                            <p class="text-2xl mb-4 font-bold text-red-950 ">S/ 5</p>
+                            <p class="text-2xl mb-4 font-bold text-[#0a45c3] ">S/ 5</p>
                             <p class="text-sm">Encomiendas de acuerdo al peso, cotizar a través de nuestro WhatsApp o
                                 acercarse
                                 a la empresa.</p>
@@ -167,36 +171,36 @@
                     </div>
                 </div>
 
-                <div class="border-red-800 border-2 p-7 rounded-2xl">
+                <div class="border-[#218eff] border-2 p-7 rounded-2xl">
                     <div class="flex flex-col items-start justify-center gap-2 ">
                         <img class="w-20 h-20 object-cover" src="img/paquete.png" alt="">
                         <div class="flex flex-col gap-2">
                             <h2 class=" font-bold mb-4">HUANCAYO A TARMA</h2>
-                            <span class="text-xs font-bold text-red-950 py-2">Tamaño</span>
+                            <span class="text-xs font-bold text-[#0a45c3] py-2">Tamaño</span>
                             <div class="flex gap-2 items-center">
                                 <button id="buttonM"
-                                    class="text-lg font-semibold border-2 border-red-800 rounded-full shadow-md w-10 h-10 flex items-center justify-center active-btn">M</button>
+                                    class="text-lg font-semibold border-2 border-[#0a45c3] rounded-full shadow-md w-10 h-10 flex items-center justify-center active-btn">M</button>
                                 <button id="buttonL"
-                                    class="text-lg font-semibold border-2 border-red-800 rounded-full shadow-md w-10 h-10 flex items-center justify-center">L</button>
+                                    class="text-lg font-semibold border-2 border-[#0a45c3] rounded-full shadow-md w-10 h-10 flex items-center justify-center">L</button>
                             </div>
-                            <p id="price" class="text-2xl mb-4 font-bold text-red-950 ">S/ 15</p>
+                            <p id="price" class="text-2xl mb-4 font-bold text-[#0a45c3] ">S/ 15</p>
                             <p class="text-sm">Encomiendas de acuerdo al peso, cotizar a través de nuestro WhatsApp o
                                 acercarse
                                 a la empresa.</p>
                         </div>
                     </div>
                 </div>
-                <div class="border-red-800 border-2 p-7 rounded-2xl">
+                <div class="border-[#218eff] border-2 p-7 rounded-2xl">
                     <div class="flex flex-col items-start justify-center gap-2 ">
                         <img class="w-20 h-20 object-contain" src="img/sobre.png" alt="">
                         <div class="flex flex-col gap-2">
                             <h2 class=" font-bold mb-4">HUANCAYO A LA SELVA</h2>
                             <p class="text-lg font-semibold">Pequeño, Documentos (Sobres):</p>
-                            <p class="text-2xl mb-4 font-bold text-red-950 ">S/ 10</p>
+                            <p class="text-2xl mb-4 font-bold text-[#0a45c3] ">S/ 10</p>
                             <p class="text-sm">Encomiendas de acuerdo al peso, cotizar a través de nuestro WhatsApp o
                                 acercarse
                                 a la empresa.</p>
-                            <span class="flex items-center  gap-2 text-xs text-red-900"><svg
+                            <span class="flex items-center  gap-2 text-xs text-[#0a45c3]"><svg
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -210,23 +214,23 @@
                 </div>
 
 
-                <div class="border-red-800 border-2 p-7 rounded-2xl">
+                <div class="border-[#218eff] border-2 p-7 rounded-2xl">
                     <div class="flex flex-col items-start justify-center gap-2 ">
                         <img class="w-20 h-20 object-cover" src="img/paquete.png" alt="">
                         <div class="flex flex-col gap-2">
                             <h2 class=" font-bold mb-4">HUANCAYO A LA SELVA</h2>
-                            <span class="text-xs font-bold text-red-950 py-2">Tamaño</span>
+                            <span class="text-xs font-bold text-[#0a45c3] py-2">Tamaño</span>
                             <div class="flex gap-2 items-center">
                                 <button id="buttonM2"
-                                    class="text-lg font-semibold border-2 border-red-800 rounded-full shadow-md w-10 h-10 flex items-center justify-center active-btn">M</button>
+                                    class="text-lg font-semibold border-2 border-[#0a45c3] rounded-full shadow-md w-10 h-10 flex items-center justify-center active-btn">M</button>
                                 <button id="buttonL2"
-                                    class="text-lg font-semibold border-2 border-red-800 rounded-full shadow-md w-10 h-10 flex items-center justify-center">L</button>
+                                    class="text-lg font-semibold border-2 border-[#0a45c3] rounded-full shadow-md w-10 h-10 flex items-center justify-center">L</button>
                             </div>
-                            <p id="price2" class="text-2xl mb-4 font-bold text-red-950 ">S/ 20</p>
+                            <p id="price2" class="text-2xl mb-4 font-bold text-[#0a45c3] ">S/ 20</p>
                             <p class="text-sm">Encomiendas de acuerdo al peso, cotizar a través de nuestro WhatsApp o
                                 acercarse
                                 a la empresa.</p>
-                            <span class="flex items-center  gap-2 text-xs text-red-900"><svg
+                            <span class="flex items-center  gap-2 text-xs text-[#0a45c3]"><svg
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -249,10 +253,10 @@
                 <div class="flex md:flex-row flex-col items-center gap-20 py-10 ">
                     <div class="flex flex-col gap-5">
                         <div>
-                            <div class="bg-zinc-50 p-5 rounded-2xl">
+                            <div class="bg-[#d6ecff] p-5 rounded-2xl">
                                 <div class="flex gap-2 items-end mb-4 ">
                                     <img class="w-10 h-10 object-cover" src="img/comercio-justo.png" alt="">
-                                    <h3 class="text-lg text-red-950 font-bold">Compromiso con la Eficiencia</h3>
+                                    <h3 class="text-lg text-[#0a45c3] font-bold">Compromiso con la Eficiencia</h3>
                                 </div>
                                 <p>Elige nuestro servicio y experimenta la confianza de entregas puntuales y seguras.
                                     Nos
@@ -263,10 +267,10 @@
 
                         </div>
                         <div>
-                            <div class="bg-zinc-50 p-5 rounded-2xl">
+                            <div class="bg-[#d6ecff] p-5 rounded-2xl">
                                 <div class="flex gap-2 items-end mb-4 ">
                                     <img class="w-10 h-10 object-cover" src="img/cohete.png" alt="">
-                                    <h3 class="text-lg text-red-950 font-bold">Innovación y Calidad</h3>
+                                    <h3 class="text-lg text-[#0a45c3] font-bold">Innovación y Calidad</h3>
                                 </div>
                                 <p>Opta por nosotros y disfruta de un servicio que evoluciona contigo. Nuestro
                                     compromiso
@@ -278,10 +282,10 @@
 
                         </div>
                         <div>
-                            <div class="bg-zinc-50 p-5 rounded-2xl">
+                            <div class="bg-[#d6ecff] p-5 rounded-2xl">
                                 <div class="flex gap-2 items-end mb-4 ">
                                     <img class="w-10 h-10 object-cover" src="img/solucion.png" alt="">
-                                    <h3 class="text-lg text-red-950 font-bold">Socio Estratégico</h3>
+                                    <h3 class="text-lg text-[#0a45c3] font-bold">Socio Estratégico</h3>
                                 </div>
                                 <p>Conviértete en parte de nuestra misión de impulsar el comercio y la comunicación. No
                                     solo
@@ -306,14 +310,14 @@
                     eficiencia y la atención al cliente, estamos aquí para conectar Huancayo con la selva central y más
                     allá. ¡Inicia tu viaje con nosotros y experimenta la diferencia!</p>
                 <button
-                    class="w-fit py-2 px-4 shadow-xd border border-black/50 bg-red-200 w-fit rounded-md mt-20">Contactar</button>
+                    class="w-fit py-2 px-4 shadow-xd border border-black/50 bg-[#218eff]  text-white w-fit rounded-md mt-20">Contactar</button>
             </div>
         </section>
     </main>
-    <footer id="contactus" class="bg-red-50 mt-20 ">
+    <footer id="contactus" class="bg-[#d6ecff] mt-20 ">
         <div class="flex items-start md:flex-row flex-col px-5 max-w-7xl m-auto gap-20 justify-between py-20">
             <div class="w-full">
-                <h2 class="text-2xl font-black text-red-950 mb-5">Travel Corp</h2>
+                <h2 class="text-2xl font-black text-[#0a45c3] mb-5">Travel Corp</h2>
                 <p>En Travel Corp, nos especializamos en ofrecer servicios de encomiendas entre Huancayo y la selva
                     central. Nuestro compromiso es garantizar entregas seguras y puntuales, brindando atención
                     personalizada a cada cliente. Con un enfoque en la calidad y la confianza, somos el aliado ideal
@@ -329,17 +333,17 @@
                         <a href=""><img class="w-9 h-9" src="img/tiktok.svg" alt=""></a>
                     </span>
                     <span>
-                        <a href=""><img class="w-9 h-9" src="img/wtsap.png" alt=""></a>
+                        <a  href="https://wa.me/+51964770687" target="_blank" ><img class="w-9 h-9" src="img/wtsap.png" alt=""></a>
                     </span>
                 </div>
             </div>
             <div class="w-full">
                 <h3 class="font-bold text-2xl mb-5 text-center ">Quick Links</h3>
                 <div class="flex flex-col gap-2 items-center justify-center">
-                    <a class="hover:text-red-900 ease-in-out duration-500 font-bold " href="">Home</a>
-                    <a class="hover:text-red-900 ease-in-out duration-500 font-bold " href="">About Us</a>
-                    <a class="hover:text-red-900 ease-in-out duration-500 font-bold " href="">Services</a>
-                    <a class="hover:text-red-900 ease-in-out duration-500 font-bold " href="">Blog</a>
+                    <a class="hover:text-[#0a45c3] ease-in-out duration-500 font-bold " href="">Home</a>
+                    <a class="hover:text-[#0a45c3] ease-in-out duration-500 font-bold " href="">About Us</a>
+                    <a class="hover:text-[#0a45c3] ease-in-out duration-500 font-bold " href="">Services</a>
+                    <a class="hover:text-[#0a45c3] ease-in-out duration-500 font-bold " href="">Blog</a>
                 </div>
             </div>
             <div class="w-full">
@@ -359,7 +363,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                         </svg>
-                        <span><a class="hover:text-red-900 ease-in-out duration-500 font-bold"
+                        <span><a class="hover:text-[#0a45c3] ease-in-out duration-500 font-bold"
                                 href="">info@gmail.com</a></span>
                     </div>
                     <div class="flex gap-2">
