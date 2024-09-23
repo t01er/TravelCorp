@@ -110,15 +110,41 @@
             </div>
             <div>
                 <div class="flex flex-col gap-4 ">
-                    <h2 class="text-5xl font-bold">About Us</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem, odit? Totam architecto dolore
-                        inventore accusamus hic sunt unde, animi blanditiis impedit natus quod dolorem corrupti
-                        laboriosam
-                        quisquam reiciendis consequatur perspiciatis libero modi adipisci explicabo voluptatibus nemo!
-                        Iusto
-                        earum optio fugiat.</p>
-                    <button class="w-fit py-2 px-4 shadow-xd border border-black/50 bg-red-200 w-fit rounded-md ">About
-                        More</button>
+                    <h2 class="text-5xl font-bold">Sobre Nosotros</h2>
+                    <p>En Travel Corp, nos especializamos en ofrecer servicios de encomiendas entre Huancayo y la selva
+                        central. Nuestro compromiso es garantizar entregas seguras y puntuales, brindando atención
+                        personalizada a cada cliente. Con un enfoque en la calidad y la confianza, somos el aliado ideal
+                        para tus necesidades de envío.</p>
+                    <div>
+                        <button id="btn-mision"
+                            class="w-fit py-2 px-4 shadow-xd border border-black/50 bg-red-200 rounded-md ">Misión</button>
+                        <button id="btn-vision"
+                            class="w-fit py-2 px-4 shadow-xd border border-black/50 bg-red-200 rounded-md ">Visión</button>
+
+                    </div>
+                </div>
+            </div>
+            <div id="modal-mision" class="fixed inset-0 hidden bg-black bg-opacity-50 flex justify-center items-center">
+                <div class="bg-white p-5 rounded-lg w-[90%] max-w-lg">
+                    <h2 class="text-2xl font-bold mb-4">Misión</h2>
+                    <p>Proporcionamos un servicio de encomiendas eficiente, seguro y accesible que conecta Huancayo con
+                        la selva central y sus alrededores. Nos comprometemos a garantizar entregas puntuales de
+                        paquetes y documentos, brindando una atención excepcional adaptándonos a las necesidades de
+                        nuestros clientes, facilitando el comercio y la comunicación para impulsar el crecimiento
+                        económico y social. (Aporte propio, 2024.)</p>
+                    <button id="close-mision" class="mt-4 px-4 py-2 bg-red-200 rounded-md">Cerrar</button>
+                </div>
+            </div>
+
+            <!-- Modal Visión -->
+            <div id="modal-vision" class="fixed inset-0 hidden bg-black bg-opacity-50 flex justify-center items-center">
+                <div class="bg-white p-5 rounded-lg w-[90%] max-w-lg">
+                    <h2 class="text-2xl font-bold mb-4">Visión</h2>
+                    <p>Ser la agencia de encomiendas líder en Huancayo, reconocida por nuestra calidad, confianza e
+                        innovación en servicios de envío. Aspiramos a ser el aliado estratégico en el que nuestros
+                        clientes confíen para sus necesidades de envío, un vínculo esencial entre Huancayo y la Selva.
+                        (Aporte propio, 2024.)</p>
+                    <button id="close-vision" class="mt-4 px-4 py-2 bg-red-200 rounded-md">Cerrar</button>
                 </div>
             </div>
         </section>
@@ -430,11 +456,28 @@
 
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
-                menu.classList.add('hidden'); 
+                menu.classList.add('hidden');
             });
         });
     </script>
 
+    <script>
+        document.getElementById('btn-mision').addEventListener('click', function () {
+            document.getElementById('modal-mision').classList.remove('hidden');
+        });
+
+        document.getElementById('close-mision').addEventListener('click', function () {
+            document.getElementById('modal-mision').classList.add('hidden');
+        });
+
+        document.getElementById('btn-vision').addEventListener('click', function () {
+            document.getElementById('modal-vision').classList.remove('hidden');
+        });
+
+        document.getElementById('close-vision').addEventListener('click', function () {
+            document.getElementById('modal-vision').classList.add('hidden');
+        });
+    </script>
 
 
 
