@@ -49,7 +49,8 @@
     <header id="home" class="headers ">
         <nav class="flex fixed w-full backdrop-blur-md bg-white/50  py-5 px-5 z-50">
             <div class="flex items-center justify-between max-w-7xl m-auto w-full">
-                <div>
+                <div class="flex items-center gap-1" >
+                    <img class="w-12 h-12 object-contain "  src="img/logo.png" alt="">
                     <h1 class="font-black text-2xl ">Travel Corp</h1>
                 </div>
                 <div class="md:hidden">
