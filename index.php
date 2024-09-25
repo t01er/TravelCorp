@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>Travel Corp</title>
 </head>
 
@@ -59,14 +62,19 @@
                     </button>
                 </div>
                 <div id="menu"
-                    class="md:block hidden absolute md:relative md:bg-transparent md:w-fit w-full md:backdrop-none backdrop-blur-md bg-white md:top-0 top-[70px] md:h-full h-screen left-0 rounded-lg  px-5   ">
+                    class="md:block hidden absolute md:relative md:bg-transparent md:w-fit w-full md:backdrop-none backdrop-blur-md  bg-white md:top-0 top-[70px] md:h-full h-screen left-0 rounded-lg  px-5   ">
                     <div
                         class="flex flex-col items-center h-fit justify-center md:h-full h-[80vh] md:my-0 my-20 md:flex-row gap-10 md:font-normal font-black md:text-base text-4xl ">
-                        <a href="#home" class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Inicio</a>
-                        <a href="#aboutus" class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Nosotros</a>
-                        <a href="#services" class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Servicios</a>
-                        <a href="#welcome" class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Informacion</a>
-                        <a href="#contactus" class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Contactanos</a>
+                        <a href="#home"
+                            class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Inicio</a>
+                        <a href="#aboutus"
+                            class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Nosotros</a>
+                        <a href="#services"
+                            class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Servicios</a>
+                        <a href="#welcome"
+                            class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Informacion</a>
+                        <a href="#contactus"
+                            class="block text-gray-800 hover:text-[#0a45c3] ease-in-out duration-500 font-bold py-2">Contactanos</a>
                     </div>
                 </div>
             </div>
@@ -103,7 +111,35 @@
                 </div>
             </div>
         </section>
-        <section id="aboutus" class="flex items-center justify-between max-w-7xl m-auto py-20 px-5">
+        <section class="swiper-container max-w-7xl mx-auto mt-10 overflow-hidden ">
+            <?php
+            // Conectar a la base de datos
+            include('db/conexion.php');
+
+            // Consulta para obtener los banners
+            $query = "SELECT titulo, imagen FROM marketing_posts";
+            $result = $conexion->query($query);
+            ?>
+
+            <div class="swiper-wrapper">
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <div class="swiper-slide text-white shadow-lg flex items-center">
+                        <img class="rounded-2xl" src="admin/uploads/<?php echo $row['imagen']; ?>"
+                            alt="<?php echo $row['titulo']; ?>">
+                    </div>
+                <?php endwhile; ?>
+            </div>
+
+            <?php
+            // Cerrar la conexión
+            $conexion->close();
+            ?>
+
+        </section>
+
+
+
+        <section id="aboutus" class="flex items-center justify-between max-w-7xl m-auto py-20 px-5 border-t border-zinc-300  mt-20">
             <div class="w-full md:block hidden  ">
                 <img class="w-96 h-96 object-cover rounded-2xl " src="img/5306ff2f-0ee2-4865-9330-57960dbecaa6.jpg"
                     alt="">
@@ -124,7 +160,8 @@
                     </div>
                 </div>
             </div>
-            <div id="modal-mision" class="fixed inset-0 hidden bg-black bg-opacity-50 flex justify-center items-center">
+            <div id="modal-mision"
+                class="fixed  z-50 inset-0 hidden bg-black bg-opacity-50 flex justify-center items-center">
                 <div class="bg-white p-5 rounded-lg w-[90%] max-w-lg">
                     <h2 class="text-2xl font-bold mb-4">Misión</h2>
                     <p>Proporcionamos un servicio de encomiendas eficiente, seguro y accesible que conecta Huancayo con
@@ -137,7 +174,8 @@
             </div>
 
             <!-- Modal Visión -->
-            <div id="modal-vision" class="fixed inset-0 hidden bg-black bg-opacity-50 flex justify-center items-center">
+            <div id="modal-vision"
+                class="fixed z-50  inset-0 hidden bg-black bg-opacity-50 flex justify-center items-center">
                 <div class="bg-white p-5 rounded-lg w-[90%] max-w-lg">
                     <h2 class="text-2xl font-bold mb-4">Visión</h2>
                     <p>Ser la agencia de encomiendas líder en Huancayo, reconocida por nuestra calidad, confianza e
@@ -313,6 +351,141 @@
                     class="w-fit py-2 px-4 shadow-xd border border-black/50 bg-[#218eff]  text-white w-fit rounded-md mt-20">Contactar</button>
             </div>
         </section>
+        <section class="max-w-7xl m-auto overflow-hidden py-10">
+            <h2 class="text-5xl font-bold mb-6">Comentarios de Nuestros Clientes</h2>
+
+            <!-- Swiper Slider -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <?php
+                    include('db/conexion.php'); // Asegúrate de ajustar la ruta correctamente
+                    
+                    $query = "SELECT r.id_reseña, r.titulo, r.comentario, r.puntuacion, c.nombre AS cliente_nombre 
+                  FROM reseñas r 
+                  JOIN clientes c ON r.id_cliente = c.id_cliente";
+                    $result = $conexion->query($query);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $titulo = $row['titulo'];
+                            $comentario = $row['comentario'];
+                            $puntuacion = $row['puntuacion'];
+                            $cliente_nombre = $row['cliente_nombre'];
+                            ?>
+                            <!-- Slide para cada reseña -->
+                            <div
+                                class="swiper-slide flex justify-start items-center w-full bg-white shadow-md rounded-2xl p-10">
+                                <div class="flex flex-col gap-2">
+                                    <div class="w-10 h-10 flex items-center justify-center p-2 rounded-full">
+                                        <img class="scale-90" src="img/comillas.svg" alt="">
+                                    </div>
+                                    <span class="block mt-2 text-zinc-900 text-lg font-black">-
+                                        <?php echo $cliente_nombre; ?></span>
+
+                                    <!-- Generar las estrellas según la puntuación -->
+                                    <div class="flex items-center gap-1">
+                                        <?php for ($i = 1; $i <= 5; $i++) { ?>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor"
+                                                class="size-6 <?php echo $i <= $puntuacion ? 'fill-yellow-500 text-yellow-500 ' : ''; ?>">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                            </svg>
+                                        <?php } ?>
+                                    </div>
+
+                                    <p class="text-lg text-gray-700">"<?php echo $comentario; ?>"</p>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    } else {
+                        echo '<p>No hay reseñas disponibles.</p>';
+                    }
+                    ?>
+                </div>
+            </div>
+
+
+            <!-- Botón para añadir un comentario -->
+            <div class="mt-6 text-center">
+                <button id="openModal"
+                    class="py-2 px-6 bg-[#218eff] text-white rounded-md shadow-lg hover:bg-[#1a70d1] transition duration-300">
+                    Comentar
+                </button>
+            </div>
+        </section>
+        <div id="commentModal" class="fixed inset-0 hidden z-50 overflow-y-auto">
+            <div class="flex items-center justify-center min-h-screen px-4">
+                <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                    <div class="absolute inset-0 bg-gray-900 opacity-75"></div>
+                </div>
+
+                <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-lg w-full">
+                    <div class="bg-[#218eff] px-4 py-3 text-white flex justify-between items-center">
+                        <h2 class="text-lg font-bold">Registrar Comentario</h2>
+                        <button id="closeModal" class="text-white font-bold text-2xl">&times;</button>
+                    </div>
+
+                    <form id="commentForm" method="POST">
+                        <div class="px-6 py-4">
+                            <label for="name" class="block text-gray-700 font-bold mb-2">Nombre:</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-md"
+                                placeholder="Tu nombre...">
+
+                            <label for="phone" class="block text-gray-700 font-bold mb-2">Número de Celular:</label>
+                            <input type="text" id="phone" name="phone" class="w-full px-4 py-2 border rounded-md"
+                                placeholder="Tu número de celular...">
+
+                            <label for="comment" class="block text-gray-700 font-bold mb-2">Comentario:</label>
+                            <textarea id="comment" name="comment" class="w-full px-4 py-2 border rounded-md"
+                                placeholder="Escribe tu comentario..." rows="4"></textarea>
+
+                            <input type="hidden" id="rating" name="rating" value="5">
+                        </div>
+
+
+                        <div class="flex items-center gap-1 px-6 py-4">
+                            <h3>Calificar</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6 star" data-value="1">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6 star" data-value="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6 star" data-value="3">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6 star" data-value="4">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6 star" data-value="5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                            </svg>
+                        </div>
+                        <input type="hidden" id="rating" value="0">
+
+                        <div class="px-6 py-3 bg-gray-100 text-right">
+                            <button id="submitComment"
+                                class="py-2 px-4 bg-[#218eff] text-white rounded-md shadow-md hover:bg-[#1a70d1] transition duration-300">
+                                Enviar Comentario
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
     </main>
     <footer id="contactus" class="bg-[#d6ecff] mt-20 ">
         <div class="flex items-start md:flex-row flex-col px-5 max-w-7xl m-auto gap-20 justify-between py-20">
@@ -333,7 +506,8 @@
                         <a href=""><img class="w-9 h-9" src="img/tiktok.svg" alt=""></a>
                     </span>
                     <span>
-                        <a  href="https://wa.me/+51964770687" target="_blank" ><img class="w-9 h-9" src="img/wtsap.png" alt=""></a>
+                        <a href="https://wa.me/+51964770687" target="_blank"><img class="w-9 h-9" src="img/wtsap.png"
+                                alt=""></a>
                     </span>
                 </div>
             </div>
@@ -482,6 +656,151 @@
     </script>
 
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            spaceBetween: 10,
+            loop: false,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        var slider = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+
+    </script>
+
+    <script>
+        const openModal = document.getElementById('openModal');
+        const closeModal = document.getElementById('closeModal');
+        const commentModal = document.getElementById('commentModal');
+        const submitComment = document.getElementById('submitComment');
+
+        // Abrir modal
+        openModal.addEventListener('click', () => {
+            commentModal.classList.remove('hidden');
+        });
+
+        // Cerrar modal
+        closeModal.addEventListener('click', () => {
+            commentModal.classList.add('hidden');
+        });
+
+
+    </script>
+
+    <script>
+        // Obtener todas las estrellas
+        const stars = document.querySelectorAll('.star');
+
+        // Añadir evento de click a cada estrella
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const ratingValue = star.getAttribute('data-value');
+                document.getElementById('rating').value = ratingValue;
+
+                // Resetear todas las estrellas a su estado vacío
+                stars.forEach(s => {
+                    s.setAttribute('fill', 'none');
+                    s.setAttribute('stroke', 'currentColor');
+                });
+
+                // Colorear las estrellas seleccionadas
+                for (let i = 0; i < ratingValue; i++) {
+                    stars[i].setAttribute('fill', '#ffc107');  // Color amarillo
+                    stars[i].setAttribute('stroke', '#ffc107');
+                }
+            });
+        });
+
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            // Manejar la selección de estrellas para la puntuación
+            $(".star").on("click", function () {
+                var ratingValue = $(this).data("value");
+                $("#rating").val(ratingValue);
+
+                // Resaltar las estrellas seleccionadas
+                $(".star").each(function () {
+                    if ($(this).data("value") <= ratingValue) {
+                        $(this).addClass("text-yellow-500");
+                    } else {
+                        $(this).removeClass("text-yellow-500");
+                    }
+                });
+            });
+
+            // Manejar el envío del formulario
+            $("#submitComment").on("click", function (e) {
+                e.preventDefault();
+
+                // Obtener los datos del formulario
+                var formData = {
+                    name: $("#name").val(),
+                    phone: $("#phone").val(),
+                    comment: $("#comment").val(),
+                    rating: $("#rating").val()
+                };
+
+                $.ajax({
+                    url: 'admin/reseña.php',
+                    type: 'POST',
+                    data: formData,
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.status === "success") {
+                            alert(response.message); // Mostrar mensaje de éxito
+
+                            // Limpiar los campos del formulario
+                            $("#name").val('');
+                            $("#phone").val('');
+                            $("#comment").val('');
+                            $("#rating").val('');
+
+                            // Desmarcar las estrellas resaltadas
+                            $(".star").removeClass("text-yellow-500");
+
+                            // Cerrar el modal (ejemplo, puedes ajustar según tu implementación)
+                            $('#closeModal').click();
+                        } else {
+                            alert(response.message); // Mostrar mensaje de error
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error en la solicitud:", error);
+                        alert("Hubo un problema al enviar el comentario.");
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 
